@@ -24,6 +24,8 @@ function App() {
         Todo Applications
       </Heading>
       ;
+      <TodoList />
+      <AddTodo />
     </VStack>
   );
 }
