@@ -14,7 +14,16 @@ function App() {
         size="lg"
         alignSelf="flex-end"
       />
-      <Heading>Todo Applications</Heading>;
+      <Heading
+        mb="8"
+        font-weight="extrabold"
+        size="2xl"
+        bgGradient="linear(to-r, pink.500,blue.500)"
+        bgClip="text"
+      >
+        Todo Applications
+      </Heading>
+      ;
     </VStack>
   );
 }
