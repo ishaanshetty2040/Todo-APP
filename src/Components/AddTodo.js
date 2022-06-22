@@ -1,15 +1,30 @@
 import { Button, HStack, Input } from "@chakra-ui/react";
-import React from "react";
+import { useState } from "react";
+import { nanoid } from "nanoid";
 
 function AddTodo({ addTodo }) {
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("123");
+    const todo = {
+      id: nanoid(),
+      body: content,
+    };
+    console.log(todo);
+    addTodo(todo);
+    setContent("");
   }
+
+  const [content, setContent] = useState("");
+
   return (
     <form onSubmit={handleSubmit}>
       <HStack mt="8">
-        <Input variant="filled" placeholder="Add your todo" />
+        <Input
+          variant="filled"
+          placeholder="Add your todo"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
         <Button colorScheme="pink" px="8" type="submit">
           Add Todo
         </Button>
