@@ -18,7 +18,18 @@ function App() {
     },
   ];
 
-  const [todos, setTodos] = useState(initialTodo);
+  const [todos, setTodos] = useState(
+    () =>
+      JSON.parse(localStorage.getItem("todos")) ||
+      [] /* by creating a function we use localstorage only in initial render and not subsequent changes */
+  );
+
+  useEffect(() => {
+    localStorage.setItem(
+      "todos",
+      JSON.stringify(todos)
+    ); /* The key is todos and value is todo */
+  }, [todos]); /* It fires only when todos changes */
 
   function deleteTodo(id) {
     const newTodos = todos.filter((todo) => {
